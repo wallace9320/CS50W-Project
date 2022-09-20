@@ -1,0 +1,26 @@
+{% extends "quiz/layout.html" %}
+
+{% block body %}
+
+    <h2>Results of Quiz: {{quiz.title}}</h2>
+        {% if message %}
+            {{message}}<br><br>
+        {% else %}
+            <h5>Your score: {{score}}/{{qnas|length}}</h5>
+            {% for qna in qnas %}
+                <div class="form-group one-box">
+                    <p>Question {{forloop.counter}}:</p>
+                    <p>{{qna.0.question_description}}</p>
+                    <p>Correct Answer: {{qna.1.option_description}}</p>
+                    Your Answer: {{qna.2.option_description}}
+                    {% if qna.1 == qna.2 %}
+                        <strong id="tick">&#10003</strong>
+                    {% else %}
+                        <strong id="cross">&#10007</strong>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    <a href="{% url 'index' %}" class="btn btn-primary">Return to Quizzes</a>
+
+{% endblock %}

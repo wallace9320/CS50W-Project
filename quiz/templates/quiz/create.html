@@ -1,0 +1,44 @@
+{% extends "quiz/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    <h2>Create Quiz</h2>
+
+    <form action="{% url 'create' %}" id="create-form" method="post">
+        {% csrf_token %}
+        <div class="form-group one-box">
+            Quiz Title: <input class="form-control" name="title"/>
+        </div>
+        <div class="questions">
+            {% for i in iterator %}
+                <div id="{{i}}" class="form-group one-box">
+                    <span>Question {{i}}:</span>
+                    <input class="form-group form-control" name="{{i}}-question" placeholder="Question"/>
+                    <input class="form-group form-control" name="{{i}}-option-1" placeholder="Option 1"/>
+                    <input class="form-group form-control" name="{{i}}-option-2" placeholder="Option 2"/>
+                    <input class="form-group form-control" name="{{i}}-option-3" placeholder="Option 3"/>
+                    <input class="form-group form-control" name="{{i}}-option-4" placeholder="Option 4"/>
+                    <span>Correct Answer:</span>
+                    <select name="{{i}}-select">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                        <option value="4">Option 4</option>
+                    </select>
+                </div>
+            {% endfor %}
+        </div>
+        <br>
+        <input type="hidden" id="no-of-questions" name="no-of-questions" value="3"/>
+        <input type="submit" value="Create Quiz" class="btn btn-dark btn-create">
+    </form>
+    <br>
+    <button id="add-question" class="btn btn-info btn-create">Add Question</button>
+    <button id="remove-question" class="btn btn-info btn-create hidden">Remove Question</button>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'quiz/create.js' %}"></script>
+{% endblock %}

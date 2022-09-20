@@ -1,0 +1,29 @@
+{% extends "quiz/layout.html" %}
+
+{% block body %}
+
+    <h2>Attempt Quiz: {{quiz.title}}</h2>
+
+    {% if message %}
+        {{message}}<br><br>
+        <a href="{% url 'index' %}" class="btn btn-primary">Return to Quizzes</a>
+    {% else %}
+        <form action="{% url 'attempt' quiz.id %}" method="post">
+            {% csrf_token %}
+            {% for qna in qnas %}
+                <div class="form-group one-box">
+                    <p>Question {{forloop.counter}}:</p>
+                    <p>{{qna.0.question_description}}</p>
+                    {% for option in qna.1 %}
+                        <p>
+                            <input type="radio" name="{{forloop.parentloop.counter}}" value="{{option.id}}">
+                            {{option.option_description}}
+                        </p>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <input type="submit" class="btn btn-success">
+        </form>
+    {% endif %}
+
+{% endblock %}

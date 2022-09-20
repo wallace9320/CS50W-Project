@@ -1,0 +1,28 @@
+{% extends "quiz/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    <h2 id="quiz-heading">All Quizzes</h2>
+    <button class="btn btn-outline-primary" id="all">All Quizzes</button>
+    <button class="btn btn-outline-primary" id="made">Quizzes Created</button>
+    <button class="btn btn-outline-primary" id="answered">Quizzes Completed</button>
+    <br>
+    <div class="search-bars">
+        Search by username: <input class="form-control" id="input-by-username" placeholder="Username"/>
+        <button class="btn btn-sm btn-outline-secondary" id="search-by-username" disabled>Search by username</button>
+    </div>
+    <div class="search-bars">
+        Search by quiz title: &nbsp&nbsp<input class="form-control" id="input-by-title" placeholder="Title"/>
+        <button class="btn btn-sm btn-outline-secondary" id="search-by-title" disabled>Search by quiz title</button>
+    </div>
+    <br>
+
+    <span class="hidden" id="current-user">{{request.user}}</span>
+    <div id="list-of-quizzes"></div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'quiz/quiz.js' %}"></script>
+{% endblock %}

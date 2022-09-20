@@ -1,0 +1,61 @@
+body {
+    background-color: azure;
+}
+
+.body {
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#user-indication {
+    padding: 8px;
+    color: lightyellow;
+}
+
+.search-bars{
+    padding-top: 10px;
+}
+
+#input-by-username, #input-by-title {
+    height: 30px;
+    width: 700px;
+    display: inline;
+}
+
+.one-box {
+    border: 2px gray solid;
+    background-color: white;
+    box-shadow: 2px 5px 5px lightgray;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.btn-create {
+    margin: 5px;
+}
+
+#tick {
+    color: green;
+}
+
+#cross {
+    color: red;
+}
+
+table {
+    width: 400px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 15px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}

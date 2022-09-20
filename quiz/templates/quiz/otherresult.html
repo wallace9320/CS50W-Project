@@ -1,0 +1,28 @@
+{% extends "quiz/layout.html" %}
+
+{% block body %}
+
+    <h2>Results of Quiz: {{quiz.title}}</h2>
+
+    <table class="table-striped">
+        <tr>
+            <th>User</th>
+            <th>Score (/{{no_of_questions}})</th>
+        </tr>
+        {% for score in scores %}
+            <tr>
+                {% if score.answerer == request.user %}
+                
+                    <td><em>{{score.answerer}} (You)</em></td>
+                    <td><em>{{score.result}}</em></td>
+                {% else %}
+                    <td>{{score.answerer}}</td>
+                    <td>{{score.result}}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'index' %}" class="btn btn-primary">Return to Quizzes</a>
+
+{% endblock %}
