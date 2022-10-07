@@ -1,3 +1,4 @@
+# CS50W-Project
 # Final Project of Online Course CS50W Web Programming in Python and JavaScript by Harvard, edX
 
 ### Video link of Screen Recording demonstrating the website:
@@ -29,4 +30,3 @@ In layout.html, the general framework of the website is defined, and is basicall
 ### How to run the application:
 
 To run the application, the user can run the application like how one would run a Django application, i.e. by python manage.py runserver. Afterwards, the user should create an account and can then proceed to use the application.
-# CS50W-Project
